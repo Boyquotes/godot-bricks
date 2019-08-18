@@ -9,7 +9,7 @@
 script = ExtResource( 1 )
 
 [node name="Paddle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320, 320 )
+position = Vector2( 322.486, 326.792 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 editor/display_folded = true
