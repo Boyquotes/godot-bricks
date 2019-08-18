@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://levels/World.gd" type="Script" id=1]
 [ext_resource path="res://objects/Paddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Brick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/HUD.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,6 +18,7 @@ editor/display_folded = true
 polygon = PoolVector2Array( 0, 384, 0, 0, 640, 0, 640, 384, 704, 384, 704, -64, -64, -64, -64, 384 )
 
 [node name="Bricks" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Brick" parent="Bricks" instance=ExtResource( 3 )]
 position = Vector2( 96, 64 )
@@ -66,6 +68,4 @@ position = Vector2( 224, 64 )
 [node name="Brick13" parent="Bricks" instance=ExtResource( 3 )]
 position = Vector2( 160, 64 )
 
-[node name="Score" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="HUD" parent="." instance=ExtResource( 4 )]

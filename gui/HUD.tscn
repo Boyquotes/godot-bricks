@@ -1,0 +1,30 @@
+[gd_scene format=2]
+
+[node name="HUD" type="MarginContainer"]
+anchor_right = 1.0
+margin_right = 638.0
+margin_bottom = 34.0
+size_flags_horizontal = 2
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 628.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+margin_right = 565.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Score: 0"
+
+[node name="Lives" type="Label" parent="HBoxContainer"]
+margin_left = 569.0
+margin_right = 618.0
+margin_bottom = 14.0
+text = "Lives: 3"

@@ -9,6 +9,7 @@ extents = Vector2( 15, 7 )
 [node name="Brick" type="StaticBody2D" groups=[
 "bricks",
 ]]
+editor/display_folded = true
 position = Vector2( 0, -0.110182 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
