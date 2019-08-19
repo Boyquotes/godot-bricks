@@ -90,6 +90,8 @@ func build_level():
         num_bricks += 1
   
   $HUD.notify("Level %s" % (current_level + 1))
+  if current_level > 0:
+    $LevelUpAudio.play()
 
 func next_level():
   $Ball.queue_free()
