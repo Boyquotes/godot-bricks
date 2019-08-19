@@ -33,6 +33,11 @@ func _ready():
 
 func _process(delta):
   $ParallaxBackground.scroll_offset.x = -$Paddle.global_position.x
+  
+func _input(event):
+  if event.is_action("ui_cancel"):
+    get_tree().paused = true
+    $HUD.show_buttons(false)
 
 func set_score(_value):
   score = _value
@@ -117,7 +122,7 @@ func on_Ball_offscreen():
   set_lives(lives - 1)
   if lives <= 0:
     get_tree().paused = true
-    $HUD.game_over()
+    $HUD.show_buttons()
     if new_highscore:
       save_score()
   else:
@@ -125,3 +130,7 @@ func on_Ball_offscreen():
   
 func _on_HUD_restart():
   get_tree().reload_current_scene()
+
+func _on_HUD_resume():
+  print("resume")
+  get_tree().paused = false

@@ -1,19 +1,36 @@
-extends MarginContainer
+extends CanvasLayer
 
 signal restart
+signal resume
 
 func update_score(value):
-  $VBoxContainer/HBoxContainer/Score.text = "Score: %s" % value
+  $MarginContainer/VBoxContainer/HBoxContainer/Score.text = "Score: %s" % value
   
 func update_lives(value):
-  $VBoxContainer/HBoxContainer/Lives.text = "Lives: %s" % value
+  $MarginContainer/VBoxContainer/HBoxContainer/Lives.text = "Lives: %s" % value
   
 func update_highscore(value):
-  $VBoxContainer/HBoxContainer/Highscore.text = "Highscore: %s" % value
+  $MarginContainer/VBoxContainer/HBoxContainer/Highscore.text = "Highscore: %s" % value
 
-func game_over(_message = "Game Over"):
-  $GameOver/VBoxContainer/Label.text = _message
-  $GameOver.show()
+func show_buttons(_game_over = true):
+  var _message
+  if _game_over:
+    _message = "Game Over"
+  else:
+    _message = "Paused"
+  $MarginContainer/CentreButtons/VBoxContainer/Label.text = _message
+  $MarginContainer/CentreButtons.show()
+  if _game_over:
+    $MarginContainer/CentreButtons/VBoxContainer/Continue.hide()
+  else:
+    $MarginContainer/CentreButtons/VBoxContainer/Continue.show()
 
 func _on_Button_pressed():
   emit_signal("restart")
+
+func _on_Quit_pressed():
+  get_tree().quit()
+
+func _on_Continue_pressed():
+  $MarginContainer/CentreButtons.hide()
+  emit_signal("resume")
