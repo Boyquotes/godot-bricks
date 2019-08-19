@@ -34,7 +34,8 @@ func _input(event):
     $Ball.hide()
     var ball = ball_scene.instance()
     ball.set_position($Ball.global_position)
-    get_tree().get_root().add_child(ball)
+    ball.connect("offscreen",get_tree().current_scene,"on_Ball_offscreen")
+    get_tree().current_scene.add_child(ball)
     
 func respawn():
   spawning = true

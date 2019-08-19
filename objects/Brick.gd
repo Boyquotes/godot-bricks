@@ -1,6 +1,8 @@
 extends StaticBody2D
 
-var lives = 1
+signal broke
+
+export (int) var lives = 1
 const colours = {
   1: "red",
   2: "orange",
@@ -15,3 +17,11 @@ func _ready():
 
 func set_colour():
   $Sprite.modulate = ColorN(colours[lives])
+  
+func hit():
+  lives -= 1
+  if lives <= 0:
+    emit_signal('broke')
+    queue_free()
+  else:
+    set_colour()
