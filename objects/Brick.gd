@@ -31,7 +31,12 @@ func set_lives():
 func hit():
   lives -= 1
   if lives <= 0:
+    $Collision.disabled = true
     emit_signal('broke', starting_lives)
-    queue_free()
+    $AnimationPlayer.play("destroy")
   else:
     set_texture()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+  if anim_name == "destroy":
+    queue_free()
