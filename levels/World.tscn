@@ -50,6 +50,7 @@ polygon = PoolVector2Array( 0, 384, 0, 0, 640, 0, 640, 384, 704, 384, 704, -64, 
 position = Vector2( 32, 32 )
 
 [node name="Audio" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="LevelUp" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 5 )

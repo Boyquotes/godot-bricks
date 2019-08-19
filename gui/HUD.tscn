@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/menu_click.wav" type="AudioStream" id=2]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -101,6 +102,9 @@ margin_bottom = 177.0
 text = "Level 1"
 
 [node name="Timer" type="Timer" parent="MarginContainer/CentreNotify"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Restart" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

@@ -31,12 +31,15 @@ func notify(_message):
   $MarginContainer/CentreNotify/Timer.start()
 
 func _on_Button_pressed():
+  $AudioStreamPlayer.play()
   emit_signal("restart")
 
 func _on_Quit_pressed():
+  $AudioStreamPlayer.play()
   get_tree().quit()
 
 func _on_Continue_pressed():
+  $AudioStreamPlayer.play()
   $MarginContainer/CentreButtons.hide()
   emit_signal("resume")
 
