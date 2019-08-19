@@ -91,7 +91,7 @@ func build_level():
   
   $HUD.notify("Level %s" % (current_level + 1))
   if current_level > 0:
-    $LevelUpAudio.play()
+    $Audio/LevelUp.play()
 
 func next_level():
   $Ball.queue_free()
@@ -127,6 +127,7 @@ func _on_Brick_broke(starting_lives):
 func on_Ball_offscreen():
   set_lives(lives - 1)
   if lives <= 0:
+    $Audio/GameOver.play()
     get_tree().paused = true
     $HUD.show_buttons()
     if new_highscore:
