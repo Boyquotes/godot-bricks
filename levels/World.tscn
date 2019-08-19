@@ -18,6 +18,7 @@ editor/display_folded = true
 polygon = PoolVector2Array( 0, 384, 0, 0, 640, 0, 640, 384, 704, 384, 704, -64, -64, -64, -64, 384 )
 
 [node name="Bricks" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Brick" parent="Bricks" instance=ExtResource( 3 )]
 position = Vector2( 96, 48 )
@@ -76,6 +77,8 @@ position = Vector2( 160, 80 )
 position = Vector2( 96, 80 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+margin_right = 630.0
+margin_bottom = 368.0
 [connection signal="broke" from="Bricks/Brick" to="." method="_on_Brick_broke"]
 [connection signal="broke" from="Bricks/Brick2" to="." method="_on_Brick_broke"]
 [connection signal="broke" from="Bricks/Brick4" to="." method="_on_Brick_broke"]
@@ -92,3 +95,4 @@ position = Vector2( 96, 80 )
 [connection signal="broke" from="Bricks/Brick8" to="." method="_on_Brick_broke"]
 [connection signal="broke" from="Bricks/Brick9" to="." method="_on_Brick_broke"]
 [connection signal="broke" from="Bricks/Brick10" to="." method="_on_Brick_broke"]
+[connection signal="restart" from="HUD" to="." method="_on_HUD_restart"]
