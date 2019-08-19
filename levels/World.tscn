@@ -22,15 +22,15 @@ margin_bottom = 400.0
 color = Color( 0.176471, 0.176471, 0.176471, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.05, 0 )
-motion_mirroring = Vector2( 640, 0 )
+motion_scale = Vector2( 0.05, 0.05 )
+motion_mirroring = Vector2( 640, 480 )
 
 [node name="BrickTiles" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.180392, 0.105882, 0.105882, 0.215686 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 128.0
-margin_bottom = 80.0
+margin_bottom = 96.0
 rect_scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 stretch_mode = 2
