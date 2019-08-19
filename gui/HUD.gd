@@ -8,7 +8,8 @@ func update_score(value):
 func update_lives(value):
   $VBoxContainer/HBoxContainer/Lives.text = "Lives: %s" % value
 
-func game_over():
+func game_over(_message = "Game Over"):
+  $VBoxContainer/GameOver/VBoxContainer/Label.text = _message
   $VBoxContainer/GameOver.show()
 
 func _on_Button_pressed():
