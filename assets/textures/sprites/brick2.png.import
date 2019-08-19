@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brick.png-4581d8e7f36e0aea328d3f6ecc6fdccd.stex"
+path="res://.import/brick2.png-5c3639f34aab2527e276461e4526b356.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/sprites/brick.png"
-dest_files=[ "res://.import/brick.png-4581d8e7f36e0aea328d3f6ecc6fdccd.stex" ]
+source_file="res://assets/textures/sprites/brick2.png"
+dest_files=[ "res://.import/brick2.png-5c3639f34aab2527e276461e4526b356.stex" ]
 
 [params]
 
@@ -24,11 +24,11 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
