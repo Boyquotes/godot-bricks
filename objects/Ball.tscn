@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://objects/Ball.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/sprites/ball.png" type="Texture" id=2]
@@ -10,6 +10,9 @@ bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 4 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1 )
 
 [node name="Ball" type="RigidBody2D"]
 mode = 2
@@ -38,4 +41,12 @@ wait_time = 0.25
 [node name="BounceNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 pitch_scale = 10.0
+
+[node name="Trail" type="Node" parent="."]
+
+[node name="Points" type="Line2D" parent="Trail"]
+z_index = -1
+width = 4.0
+gradient = SubResource( 3 )
+texture_mode = -1585212
 [connection signal="timeout" from="PaddleTimer" to="." method="_on_PaddleTimer_timeout"]

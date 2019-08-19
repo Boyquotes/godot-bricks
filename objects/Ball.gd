@@ -4,6 +4,7 @@ signal offscreen
 
 export (int) var SPEEDUP = 8
 export (int) var MAXSPEED = 400
+export (int) var TRAILLENGTH = 10
 
 var hits = 0
 const BOUNCE_NOISES = [
@@ -28,6 +29,11 @@ func _ready():
   $BounceNoise.stream = BOUNCE_NOISES[hits]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+  if $Trail/Points.points.size() > TRAILLENGTH:
+    $Trail/Points.remove_point(0)
+  $Trail/Points.add_point(position)
+
 func _physics_process(delta):
   for body in get_colliding_bodies():
     if body.is_in_group("bricks"):
