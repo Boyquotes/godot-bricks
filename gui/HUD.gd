@@ -25,6 +25,11 @@ func show_buttons(_game_over = true):
   else:
     $MarginContainer/CentreButtons/VBoxContainer/Continue.show()
 
+func notify(_message):
+  $MarginContainer/CentreNotify/Notify.text = _message
+  $MarginContainer/CentreNotify.show()
+  $MarginContainer/CentreNotify/Timer.start()
+
 func _on_Button_pressed():
   emit_signal("restart")
 
@@ -34,3 +39,6 @@ func _on_Quit_pressed():
 func _on_Continue_pressed():
   $MarginContainer/CentreButtons.hide()
   emit_signal("resume")
+
+func _on_Timer_timeout():
+  $MarginContainer/CentreNotify.hide()

@@ -47,6 +47,7 @@ text = "Lives: 3"
 
 [node name="CentreButtons" type="CenterContainer" parent="MarginContainer"]
 pause_mode = 2
+editor/display_folded = true
 visible = false
 margin_left = 10.0
 margin_top = 10.0
@@ -84,6 +85,23 @@ margin_top = 114.0
 margin_right = 99.0
 margin_bottom = 134.0
 text = "Quit Game"
+
+[node name="CentreNotify" type="CenterContainer" parent="MarginContainer"]
+visible = false
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 630.0
+margin_bottom = 350.0
+
+[node name="Notify" type="Label" parent="MarginContainer/CentreNotify"]
+margin_left = 287.0
+margin_top = 163.0
+margin_right = 333.0
+margin_bottom = 177.0
+text = "Level 1"
+
+[node name="Timer" type="Timer" parent="MarginContainer/CentreNotify"]
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Restart" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="MarginContainer/CentreButtons/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="timeout" from="MarginContainer/CentreNotify/Timer" to="." method="_on_Timer_timeout"]

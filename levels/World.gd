@@ -43,7 +43,9 @@ func set_score(_value):
   score = _value
   $HUD.update_score(score)
   if score > highscore:
-    new_highscore = true
+    if not new_highscore:
+      new_highscore = true
+      $HUD.notify("New High Score!")
     highscore = score
     $HUD.update_highscore(highscore)
   
@@ -86,6 +88,8 @@ func build_level():
         brick.connect("broke",self,"_on_Brick_broke")
         $Bricks.add_child(brick)
         num_bricks += 1
+  
+  $HUD.notify("Level %s" % (current_level + 1))
 
 func next_level():
   $Ball.queue_free()
