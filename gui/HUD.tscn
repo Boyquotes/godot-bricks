@@ -19,15 +19,24 @@ margin_right = 630.0
 margin_bottom = 350.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
 margin_right = 620.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Score" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 14.0
+text = "Score: 0"
+
+[node name="Highscore" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 55.0
 margin_right = 567.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
-text = "Score: 0"
+text = "Highscore: 0"
+align = 1
 
 [node name="Lives" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 571.0
@@ -35,30 +44,31 @@ margin_right = 620.0
 margin_bottom = 14.0
 text = "Lives: 3"
 
-[node name="GameOver" type="CenterContainer" parent="VBoxContainer"]
+[node name="GameOver" type="CenterContainer" parent="."]
 visible = false
-margin_top = 18.0
-margin_right = 620.0
-margin_bottom = 340.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 630.0
+margin_bottom = 350.0
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GameOver"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
 margin_left = 260.0
-margin_top = 134.0
+margin_top = 143.0
 margin_right = 359.0
-margin_bottom = 188.0
+margin_bottom = 197.0
 custom_constants/separation = 20
 
-[node name="Label" type="Label" parent="VBoxContainer/GameOver/VBoxContainer"]
+[node name="Label" type="Label" parent="GameOver/VBoxContainer"]
 margin_right = 99.0
 margin_bottom = 14.0
 text = "Game Over"
 align = 1
 
-[node name="Restart" type="Button" parent="VBoxContainer/GameOver/VBoxContainer"]
+[node name="Restart" type="Button" parent="GameOver/VBoxContainer"]
 pause_mode = 2
 margin_top = 34.0
 margin_right = 99.0
 margin_bottom = 54.0
 text = "Restart Game"
-[connection signal="pressed" from="VBoxContainer/GameOver/VBoxContainer/Restart" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="GameOver/VBoxContainer/Restart" to="." method="_on_Button_pressed"]

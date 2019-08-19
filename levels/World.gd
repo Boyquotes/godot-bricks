@@ -3,13 +3,16 @@ extends Node2D
 var score = 0 setget set_score
 var lives = 3 setget set_lives
 
+var highscore = 0
 var num_bricks = 0
 var current_level = 0
 var prev_level_mult = 0
 var level_mult = 1
+var new_highscore = false
 const brick_scene = preload("res://objects/Brick.tscn")
 const BRICK_SCALE = 2
 const BRICK_VALUE = 5
+const score_file = "user://highscore.save"
 
 const levels = [
   [[1,1,1,1,1,1,1,1], [], [], [], []],
@@ -20,6 +23,8 @@ const levels = [
 ]
 
 func _ready():
+  load_score()
+  $HUD.update_highscore(highscore)
   $HUD.update_score(score)
   $HUD.update_lives(lives)
   get_tree().paused = false
@@ -32,6 +37,10 @@ func _process(delta):
 func set_score(_value):
   score = _value
   $HUD.update_score(score)
+  if score > highscore:
+    new_highscore = true
+    highscore = score
+    $HUD.update_highscore(highscore)
   
 func set_lives(_value):
   lives = _value
@@ -85,6 +94,19 @@ func next_level():
   build_level()
   $Paddle.respawn()
 
+func load_score():
+  var f = File.new()
+  if f.file_exists(score_file):
+    f.open(score_file, File.READ)
+    highscore = f.get_var()
+    f.close()
+    
+func save_score():
+  var f = File.new()
+  f.open(score_file, File.WRITE)
+  f.store_var(highscore)
+  f.close()
+
 func _on_Brick_broke(starting_lives):
   set_score(score + starting_lives * BRICK_VALUE * level_mult)
   num_bricks -= 1
@@ -96,6 +118,8 @@ func on_Ball_offscreen():
   if lives <= 0:
     get_tree().paused = true
     $HUD.game_over()
+    if new_highscore:
+      save_score()
   else:
     $Paddle.respawn()
   
