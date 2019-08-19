@@ -23,6 +23,9 @@ func _ready():
   build_level()
   $Paddle.respawn()
 
+func _process(delta):
+  $ParallaxBackground.scroll_offset.x = -$Paddle.global_position.x
+
 func set_score(_value):
   score = _value
   $HUD.update_score(score)
